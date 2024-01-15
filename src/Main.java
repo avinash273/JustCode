@@ -1,3 +1,4 @@
+import Leetcode.ReverseVowelsString345;
 import Leetcode.twoSumMain;
 
 public class Main {
@@ -20,5 +21,7 @@ public class Main {
         int[] output = twoSumVar.twoSum(new int[]{2, 7, 11, 15}, 9);
         System.out.println("1. twoSum: [" + output[0] + "," + output[1] + "]");
 
+        ReverseVowelsString345 reverseVowelsString = new ReverseVowelsString345();
+        System.out.println(reverseVowelsString.reverseVowels("hello"));
     }
 }
