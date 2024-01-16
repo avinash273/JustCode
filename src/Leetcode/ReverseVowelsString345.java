@@ -1,45 +1,42 @@
 package Leetcode;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class ReverseVowelsString345 {
     public String reverseVowels(String s) {
-        char[] letters = s.toCharArray();
-        int right = s.length() - 1;
+        HashSet<Character> isVowel = new HashSet<>();
+        isVowel.add('a');
+        isVowel.add('e');
+        isVowel.add('i');
+        isVowel.add('o');
+        isVowel.add('u');
+        isVowel.add('A');
+        isVowel.add('E');
+        isVowel.add('I');
+        isVowel.add('O');
+        isVowel.add('U');
+
+        char[] letter = s.toCharArray();
         int left = 0;
-        HashMap<Character, Integer> vowels = new HashMap<>();
-        vowels.put('a', 1);
-        vowels.put('e', 1);
-        vowels.put('i', 1);
-        vowels.put('o', 1);
-        vowels.put('u', 1);
-        vowels.put('A', 1);
-        vowels.put('E', 1);
-        vowels.put('I', 1);
-        vowels.put('O', 2);
-        vowels.put('U', 1);
-
-
+        int right = s.length() - 1;
 
         while (left < right) {
-            if (vowels.containsKey(letters[left]) && vowels.containsKey(letters[right])) {
-                char memory = letters[left];
-                letters[left] = letters[right];
-                letters[right] = memory;
-                left++;
-                right--;
-            }
-            else if (!vowels.containsKey(letters[left]) && vowels.containsKey(letters[right])){
+            //left is not vowel increment
+            if (!isVowel.contains(letter[left])) {
                 left++;
             }
-            else if (vowels.containsKey(letters[left]) && !vowels.containsKey(letters[right])){
+            //right is not vowel increment
+            else if (!isVowel.contains(letter[right])) {
                 right--;
             }
-            else {
-                left++;
-                right--;
+            //is both vowel swap
+            else if (isVowel.contains(letter[left]) && isVowel.contains(letter[right])) {
+                char memory = letter[left];
+                letter[left++] = letter[right];
+                letter[right--] = memory;
             }
         }
-        return String.valueOf(letters);
+        return new String(letter);
     }
 }
