@@ -18,4 +18,21 @@ public class SingleNumber6 {
         }
         return 0;
     }
+
+    public int singleNumber2(int[] nums) {
+        //2∗(a+b+c)−(a+a+b+b+c)=c
+        HashSet<Integer> set = new HashSet<>();
+        int runningSum = 0;
+        int setSum = 0;
+
+        for (int num : nums) {
+            set.add(num);
+            runningSum += num;
+        }
+
+        for(int num2 : set){
+            setSum += num2;
+        }
+        return (2*setSum) - runningSum;
+    }
 }
