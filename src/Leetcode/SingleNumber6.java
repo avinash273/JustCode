@@ -35,4 +35,15 @@ public class SingleNumber6 {
         }
         return (2*setSum) - runningSum;
     }
+
+    public int singleNumber3(int[] nums) {
+        //XOR 5 ^ 5 = 0
+        int result = 0;
+
+        for (int num : nums) {
+            result ^= num;
+        }
+        return result;
+    }
+
 }
