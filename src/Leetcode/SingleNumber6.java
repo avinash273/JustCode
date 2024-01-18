@@ -37,7 +37,7 @@ public class SingleNumber6 {
     }
 
     public int singleNumber3(int[] nums) {
-        //XOR 5 ^ 5 = 0
+        //XOR 5 ^ 5 = 0 and there is other way
         int result = 0;
 
         for (int num : nums) {
