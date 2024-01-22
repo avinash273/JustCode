@@ -41,7 +41,7 @@ public class SingleNumber6 {
         int result = 0;
 
         for (int num : nums) {
-            result ^= num;
+            result ^= num;;
         }
         return result;
     }
